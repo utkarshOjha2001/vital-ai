@@ -6,6 +6,7 @@
   --primary: #6C63FF;
   --secondary: #00D4FF;
   --neutral: #94A3B8;
+  --textsm: 1rem;
 }
 
 @theme inline {
@@ -28,6 +29,4 @@
 *{
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
