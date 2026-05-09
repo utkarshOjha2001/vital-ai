@@ -94,7 +94,7 @@ export default function Home() {
                   </p>
                 </div>
                 <div>
-                  <TriangleAlert className=' w-6 h-6' />
+                  <TriangleAlert className='animate-pulse w-6 h-6' />
                 </div>
               </CustomCard>
 
