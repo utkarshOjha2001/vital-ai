@@ -5,6 +5,7 @@ import CustomButton from './CustomButton';
 import { menuList } from '@/constants/menuList';
 
 const Header = () => {
+  
   return (
     <header className="w-screen border-b-[0.5px] dark:bg-background border-b-cyan-900 px-8 py-2 flex items-center justify-between">
       <div className="flex items-center cursor-pointer">
@@ -20,7 +21,7 @@ const Header = () => {
         </h1>
       </div>
 
-      <nav className='flex gap-8 cursor-pointer'>
+      <nav className='flex items-center gap-8 cursor-pointer'>
         {
           menuList.map((item, index) => (
             <div className='text-md text-foreground' key={index}>
@@ -30,9 +31,13 @@ const Header = () => {
         }
         <CustomButton
           text='Get Started'
-          type='primary'
-          handleClick={()=>{console.log("Hello")}}
-        />
+          variant='primary'
+          size='sm'
+          className='w-35 rounded-md'
+           onClick={() => alert("clicked")}
+        >
+          Get Started
+          </CustomButton>
       </nav>
 
     </header>

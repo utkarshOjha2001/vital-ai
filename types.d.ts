@@ -1,7 +1,11 @@
-interface ButtonProps {
+interface ButtonProps
+    extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     text: string;
-    handleClick: () => void;
     width?: string;
     height?: string;
-    type?: 'primary' | 'secondary' | 'danger' | 'submit' | 'reset';
+    variant?: 'primary' | 'secondary' | 'danger' | 'ghost';
+    size?: 'sm' | 'md' | 'lg';
+    loading?: boolean;
+    fullWidth?: boolean;
+    className?: string;
 }
