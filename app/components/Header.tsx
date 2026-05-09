@@ -7,7 +7,7 @@ import { menuList } from '@/constants/menuList';
 const Header = () => {
   
   return (
-    <header className="w-screen border-b-[0.5px] dark:bg-background border-b-cyan-900 px-8 py-2 flex items-center justify-between">
+    <header className="w-screen border-b-[0.5px] dark:bg-background border-b-cyan-900 px-8 py-3 flex items-center justify-between">
       <div className="flex items-center cursor-pointer">
         <Image
           src="/logo.png"
