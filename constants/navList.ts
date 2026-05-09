@@ -1,4 +1,4 @@
-export const menuList = [
+export const navList = [
     {
         name: 'Features',
         link: '#features',

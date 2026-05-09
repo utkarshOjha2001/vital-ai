@@ -17,7 +17,7 @@ const CustomButton = ({
       disabled={disabled || loading}
       className={clsx(
         `
-        rounded-sm
+        rounded-md
         font-semibold
         transition-all
         duration-300

@@ -2,10 +2,10 @@
 
 import Image from 'next/image';
 import CustomButton from './CustomButton';
-import { menuList } from '@/constants/menuList';
+import { navList } from '@/constants/navList';
 
 const Header = () => {
-  
+
   return (
     <header className="w-screen border-b-[0.5px] dark:bg-background border-b-cyan-900 px-8 py-3 flex items-center justify-between">
       <div className="flex items-center cursor-pointer">
@@ -23,21 +23,22 @@ const Header = () => {
 
       <nav className='flex items-center gap-8 cursor-pointer'>
         {
-          menuList.map((item, index) => (
+          navList.map((item, index) => (
             <div className='text-md text-foreground' key={index}>
               {item?.name}
             </div>
           ))
         }
         <CustomButton
-          text='Get Started'
           variant='primary'
           size='sm'
           className='w-35 rounded-md'
-           onClick={() => alert("clicked")}
+          onClick={() => alert("clicked")}
+          loading={false}
+
         >
           Get Started
-          </CustomButton>
+        </CustomButton>
       </nav>
 
     </header>

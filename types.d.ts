@@ -1,6 +1,5 @@
 interface ButtonProps
     extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    text: string;
     width?: string;
     height?: string;
     variant?: 'primary' | 'secondary' | 'danger' | 'ghost';
@@ -8,4 +7,19 @@ interface ButtonProps
     loading?: boolean;
     fullWidth?: boolean;
     className?: string;
+}
+
+interface CustomChipProps {
+    variant?: 'primary' | 'secondary' | 'neutral' | 'none';
+    className?: string;
+    title?: string;
+    size?: 'sm' | 'md' | 'lg';
+}
+
+interface CustomCardProps {
+    variant?: 'primary' | 'secondary' | 'natural' | 'danger';
+    width?: string;
+    height?: string;
+    className?: string;
+    children?: React.ReactNode;
 }
