@@ -79,6 +79,9 @@ secondary: `
 
     backdrop-blur-lg
   `,
+    none: `
+  
+  `
 };
 
 

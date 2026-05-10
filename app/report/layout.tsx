@@ -30,9 +30,7 @@ export default function RootLayout({
     >
       <body>
         <div className="flex">
-          <div className="">
             <LeftMenu />
-          </div>
           <div>
           {children}
           </div>

@@ -11,6 +11,8 @@ export const variantStyles = {
 
     ghost:
         'bg-transparent text-foreground hover:bg-white/5 border-transparent',
+    none:
+    ``
 };
 
 export const sizeStyles = {

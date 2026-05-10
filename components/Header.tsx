@@ -31,10 +31,7 @@ const Header = () => {
         z-50
       "
     >
-
-      {/* LOGO */}
       <div className="flex items-center cursor-pointer shrink-0 gap-2">
-
         <Image
           src="/logo.png"
           alt="logo"

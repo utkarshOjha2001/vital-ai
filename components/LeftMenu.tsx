@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 const LeftMenu = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const router = useRouter();
   const pathname = usePathname();
