@@ -12,7 +12,6 @@ const CustomCard = ({
         <div
            className={clsx(
     `
-    w-full
     p-4
     transition-all
     duration-500

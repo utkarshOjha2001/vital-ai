@@ -21,27 +21,27 @@ export const variantStyles = {
     before:pointer-events-none
   `,
 
-    secondary: `
-    relative
-    overflow-hidden
+secondary: `
+  relative
+  overflow-hidden
 
-    rounded-[24px]
+  rounded-[24px]
 
-    bg-[rgba(8,20,40,0.82)]
-    backdrop-blur-xl
+  bg-[#071427]/95
+  backdrop-blur-xl
 
-    border
-    border-cyan-400/20
+  border
+  border-[#7EDCFF]/70
 
-    shadow-[0_0_30px_rgba(0,212,255,0.12)]
+  shadow-[0_0_12px_rgba(126,220,255,0.30),0_0_24px_rgba(126,220,255,0.10)]
 
-    text-[#D7E7FF]
+  text-[#D7E7FF]
 
-    before:absolute
-    before:inset-0
-    before:bg-[linear-gradient(to_bottom_right,rgba(255,255,255,0.04),transparent)]
-    before:pointer-events-none
-  `,
+  before:absolute
+  before:inset-0
+  before:bg-[linear-gradient(to_bottom_right,rgba(255,255,255,0.03),transparent)]
+  before:pointer-events-none
+`,
 
     danger: `
     relative

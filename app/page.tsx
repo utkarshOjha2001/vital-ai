@@ -2,7 +2,8 @@ import CustomButton from './components/CustomButton';
 import CustomChip from './components/CustomChip';
 import Header from './components/Header';
 import CustomCard from './components/CutsomCard';
-import { FileText, CircleCheck, TriangleAlert } from 'lucide-react';
+import { FileText, CircleCheck, TriangleAlert, Bot } from 'lucide-react';
+import { TypingText } from './utils/helpers';
 
 
 export default function Home() {
@@ -98,6 +99,37 @@ export default function Home() {
                 </div>
               </CustomCard>
 
+            </CustomCard>
+            <CustomCard
+              variant="secondary"
+              className="flex gap-5 w-80 absolute -top-22.5 left-95"
+            >
+              <div
+                className="
+      min-w-10
+      h-10
+      flex
+      items-center
+      justify-center
+      rounded-full
+      bg-linear-to-r
+      from-[#B9A7FF]
+      to-[#8ED8FF]
+    "
+              >
+                <Bot className="w-6 h-6 text-white" />
+              </div>
+
+              <div className="font-semibold text-sm leading-7 text-[#D7E7FF]">
+                <TypingText className='text-md tracking-wide'
+                  text={`Your LDL is slightly elevated.
+Consider discussing dietary
+changes with your provider.
+Would you like a suggested
+action plan? `}
+                  speed={60}
+                />
+              </div>
             </CustomCard>
           </div>
         </div>

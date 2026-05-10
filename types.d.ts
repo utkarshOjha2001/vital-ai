@@ -23,3 +23,9 @@ interface CustomCardProps {
     className?: string;
     children?: React.ReactNode;
 }
+
+interface ITypingTextProps {
+    text: string;
+    speed?: number;
+    className?: string;
+}
