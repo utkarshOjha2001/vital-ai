@@ -1,0 +1,32 @@
+.report-container {
+  position: sticky;
+  top: 0;
+  left: 0;
+  padding: 2rem;
+  min-width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: var(--background);
+}
+
+.report-top-glow {
+  position: absolute;
+  top: -350px;
+  left: -250px;
+  width: 600px;
+  height: 600px;
+  border-radius: 9999px;
+  background-color: rgba(108, 99, 255, 0.3);
+  filter: blur(140px);
+}
+
+.report-bottom-glow {
+  position: absolute;
+  bottom: -400px;
+  right: -300px;
+  width: 600px;
+  height: 600px;
+  border-radius: 9999px;
+  background-color: rgba(0, 212, 255, 0.25);
+  filter: blur(160px);
+}

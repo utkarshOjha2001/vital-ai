@@ -1,12 +1,16 @@
-import CustomButton from '../components/CustomButton';
-import CustomChip from '../components/CustomChip';
-import Header from '../components/Header';
-import CustomCard from '../components/CutsomCard';
+'use client';
+
+import CustomButton from '../../components/CustomButton';
+import { useRouter } from 'next/navigation';
+import CustomChip from '../../components/CustomChip';
+import Header from '../../components/Header';
+import CustomCard from '../../components/CutsomCard';
 import { FileText, CircleCheck, TriangleAlert, Bot } from 'lucide-react';
-import { TypingText } from '../utils/helpers';
+import { TypingText } from '../../utils/helpers';
 
 
 export default function Home() {
+  const router = useRouter();
   return (
   <div
   className="
@@ -117,7 +121,10 @@ export default function Home() {
           sm:items-center
         "
       >
-        <CustomButton size="md">
+        <CustomButton
+         size="md"
+         onClick={()=>{router.push('/report')}}
+         >
           Upload Report
         </CustomButton>
 
@@ -228,7 +235,7 @@ export default function Home() {
             lg:mt-0
 
             lg:absolute
-            lg:-top-[-310px]
+           lg:top-75
             lg:left-[240]
           "
         >
