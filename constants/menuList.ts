@@ -1,27 +1,40 @@
+import {
+  LayoutDashboard,
+  FileText,
+  Bot,
+  Activity,
+  HeartPulse,
+} from "lucide-react";
+
 export const menuList = [
-    {
-        name: 'Overview',
-        path: '',
-        alias: ''
-    },
-    {
-        name: 'Medical Reports',
-        path: '',
-        alias: ''
-    },
-    {
-        name: 'AI Consultant',
-        path: '',
-        alias: ''
-    },
-    {
-        name: 'Vital Chart',
-        path: '',
-        alias: ''
-    },
-    {
-        name: 'Dite & Wellness',
-        path: '',
-        alias: ''
-    }
-]
+  {
+    name: 'Overview',
+    icon: LayoutDashboard,
+    path: '/overview',
+    alias: '',
+  },
+  {
+    name: 'Medical Reports',
+    icon: FileText,
+    path: '/report',
+    alias: '',
+  },
+  {
+    name: 'AI Consultant',
+    icon: Bot,
+    path: '/ai-consultant',
+    alias: '',
+  },
+  {
+    name: 'Vital Chart',
+    icon: Activity,
+    path: '/vital-chart',
+    alias: '',
+  },
+  {
+    name: 'Diet & Wellness',
+    icon: HeartPulse,
+    path: '/diet-wellness',
+    alias: '',
+  },
+];
