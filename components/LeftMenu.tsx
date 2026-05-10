@@ -15,6 +15,7 @@ import {
 
 const LeftMenu = () => {
   const [isOpen, setIsOpen] = useState(true);
+
   const router = useRouter();
   const pathname = usePathname();
 
@@ -22,7 +23,7 @@ const LeftMenu = () => {
     setIsOpen((prev) => !prev);
   }
 
-  function handleMenuClick(index: number, path: string) {
+  function handleMenuClick(path: string) {
     if (!isOpen) {
       setIsOpen(true);
     }
@@ -51,14 +52,14 @@ const LeftMenu = () => {
         bg-[#071427]/90
         backdrop-blur-2xl
 
-        py-6
+        py-4
 
         transition-all
         duration-300
         `,
         isOpen
-          ? 'w-52 sm:w-60 lg:w-64 px-5'
-          : 'w-16 px-2'
+          ? 'w-46 sm:w-52 lg:w-56 px-3'
+          : 'w-14 px-1.5'
       )}
     >
 
@@ -81,15 +82,15 @@ const LeftMenu = () => {
             className="
               flex
               items-center
-              gap-3
+              gap-2
 
               cursor-pointer
             "
           >
 
             <Image
-              width={40}
-              height={40}
+              width={32}
+              height={32}
               src={'/logo.png'}
               alt="Vital AI"
               className="shrink-0"
@@ -98,11 +99,11 @@ const LeftMenu = () => {
             {isOpen && (
               <div>
 
-                <div className="text-white font-bold text-2xl leading-none">
+                <div className="text-white font-bold text-lg leading-none">
                   Vital AI
                 </div>
 
-                <div className="text-xs text-[#A1A1AA] font-medium mt-1">
+                <div className="text-[10px] text-[#A1A1AA] font-medium mt-1">
                   Precision Medicine
                 </div>
 
@@ -115,8 +116,8 @@ const LeftMenu = () => {
             <PanelLeftClose
               onClick={handleMenuToggle}
               className="
-                w-5
-                h-5
+                w-4
+                h-4
 
                 text-white
 
@@ -130,10 +131,12 @@ const LeftMenu = () => {
           )}
 
         </div>
+
+        {/* UPLOAD BUTTON */}
         <button
           className={clsx(
             `
-            mt-8
+            mt-6
 
             flex
             items-center
@@ -142,18 +145,18 @@ const LeftMenu = () => {
 
             rounded-lg
 
-            py-3
+            py-2.5
 
             text-white
             font-semibold
-            text-sm
+            text-xs
 
             border-[0.5px]
             border-[#7B6DFF]
 
             bg-transparent
 
-            shadow-[0_0_20px_rgba(108,99,255,0.18)]
+            shadow-[0_0_15px_rgba(108,99,255,0.15)]
 
             transition-all
             duration-300
@@ -161,22 +164,24 @@ const LeftMenu = () => {
             hover:bg-[#7B6DFF]/10
             hover:border-[#9D8CFF]
             `,
-            isOpen ? 'w-full px-4' : 'w-10 h-10 p-0 mx-auto'
+            isOpen ? 'w-full px-3' : 'w-9 h-9 p-0 mx-auto'
           )}
         >
-          <Upload className="w-4 h-4 shrink-0" />
+          <Upload className="w-3.5 h-3.5 shrink-0" />
 
-          {isOpen && 'Upload New Report'}
+          {isOpen && 'Upload Report'}
         </button>
 
+        {/* MENU */}
+        <div className="mt-8 flex flex-col gap-2">
 
-        <div className="mt-10 flex flex-col gap-3">
           {menuList.map((item, index) => {
             const Icon = item.icon;
+
             return (
               <div
                 key={index}
-                onClick={() => handleMenuClick(index, item.path)}
+                onClick={() => handleMenuClick(item.path)}
                 className={clsx(
                   `
                   flex
@@ -190,16 +195,16 @@ const LeftMenu = () => {
                   duration-300
 
                   text-[#D4D4D8]
-                  font-semibold
-                  text-sm
+                  font-medium
+                  text-xs
 
                   hover:bg-white/5
                   hover:text-white
                   `,
 
                   isOpen
-                    ? 'gap-3 px-4 py-3'
-                    : 'justify-center py-3',
+                    ? 'gap-3 px-3 py-2.5'
+                    : 'justify-center py-2.5',
 
                   pathname === item.path &&
                     `
@@ -209,11 +214,11 @@ const LeftMenu = () => {
 
                     text-white
 
-                    shadow-[0_0_25px_rgba(108,99,255,0.28)]
+                    shadow-[0_0_18px_rgba(108,99,255,0.22)]
                   `
                 )}
               >
-                <Icon className="w-5 h-5 shrink-0" />
+                <Icon className="w-4 h-4 shrink-0" />
 
                 {isOpen && item.name}
               </div>
@@ -224,11 +229,12 @@ const LeftMenu = () => {
 
       </div>
 
+      {/* BOTTOM */}
       <div>
 
-        <div className="h-px w-full bg-white/10 mb-5" />
+        <div className="h-px w-full bg-white/10 mb-4" />
 
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-1.5">
 
           {[
             { icon: Settings, label: 'Settings' },
@@ -245,10 +251,10 @@ const LeftMenu = () => {
                   flex
                   items-center
 
-                  rounded-xl
+                  rounded-lg
 
-                  font-semibold
-                  text-sm
+                  font-medium
+                  text-xs
 
                   transition-all
                   duration-300
@@ -257,15 +263,15 @@ const LeftMenu = () => {
                   `,
 
                   isOpen
-                    ? 'gap-3 px-4 py-3'
-                    : 'justify-center py-3',
+                    ? 'gap-3 px-3 py-2.5'
+                    : 'justify-center py-2.5',
 
                   item.danger
                     ? 'text-[#D4D4D8] hover:bg-red-500/10 hover:text-red-300'
                     : 'text-[#D4D4D8] hover:bg-white/5 hover:text-white'
                 )}
               >
-                <Icon className="w-5 h-5 shrink-0" />
+                <Icon className="w-4 h-4 shrink-0" />
 
                 {isOpen && item.label}
               </div>

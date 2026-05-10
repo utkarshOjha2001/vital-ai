@@ -17,15 +17,15 @@ export const Footer = () => {
 
         justify-between
 
-        gap-10
-        lg:gap-6
+        gap-8
+        lg:gap-5
 
-        px-5
-        sm:px-8
-        lg:px-12
+        px-4
+        sm:px-6
+        lg:px-10
 
-        py-8
-        lg:py-10
+        py-6
+        lg:py-7
 
         border-t
         border-white/10
@@ -35,16 +35,17 @@ export const Footer = () => {
       {/* LEFT */}
       <div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
 
           <Image
             src="/logo.png"
             alt="Vital AI"
-            width={40}
-            height={40}
+            width={32}
+            height={32}
+            className="shrink-0"
           />
 
-          <div className="text-2xl font-bold bg-neutral bg-clip-text text-transparent">
+          <div className="text-xl font-bold bg-neutral bg-clip-text text-transparent">
             Vital AI
           </div>
 
@@ -52,15 +53,16 @@ export const Footer = () => {
 
         <p
           className="
-            mt-4
+            mt-3
+
             text-neutral
 
-            max-w-md
+            max-w-sm
 
-            text-sm
-            sm:text-base
+            text-[11px]
+            sm:text-sm
 
-            leading-7
+            leading-6
           "
         >
           &copy; 2026 Vital AI Systems. HIPAA Compliant Precision Care.
@@ -76,31 +78,31 @@ export const Footer = () => {
           flex-col
           sm:flex-row
 
-          gap-4
-          sm:gap-6
-          lg:gap-8
+          gap-3
+          sm:gap-5
+          lg:gap-6
 
           text-neutral
           font-medium
 
-          text-sm
-          sm:text-base
+          text-[11px]
+          sm:text-sm
         "
       >
 
-        <li className="cursor-pointer hover:text-white transition-colors">
+        <li className="cursor-pointer hover:text-white transition-colors duration-300">
           Privacy Policy
         </li>
 
-        <li className="cursor-pointer hover:text-white transition-colors">
+        <li className="cursor-pointer hover:text-white transition-colors duration-300">
           Terms of Service
         </li>
 
-        <li className="cursor-pointer hover:text-white transition-colors">
+        <li className="cursor-pointer hover:text-white transition-colors duration-300">
           Clinical Standards
         </li>
 
-        <li className="cursor-pointer hover:text-white transition-colors">
+        <li className="cursor-pointer hover:text-white transition-colors duration-300">
           Contact Support
         </li>
 

@@ -16,11 +16,11 @@ const Header = () => {
         dark:bg-background/70
         backdrop-blur-xl
 
-        px-5
-        sm:px-8
+        px-4
+        sm:px-6
         lg:px-8
 
-        py-3
+        py-2.5
 
         flex
         items-center
@@ -33,20 +33,20 @@ const Header = () => {
     >
 
       {/* LOGO */}
-      <div className="flex items-center cursor-pointer shrink-0">
+      <div className="flex items-center cursor-pointer shrink-0 gap-2">
 
         <Image
           src="/logo.png"
           alt="logo"
-          width={40}
-          height={40}
-          className="w-8 h-8 sm:w-10 sm:h-10"
+          width={34}
+          height={34}
+          className="w-7 h-7 sm:w-8 sm:h-8"
         />
 
         <h1
           className="
-            text-2xl
-            sm:text-3xl
+            text-xl
+            sm:text-2xl
 
             font-bold
 
@@ -70,8 +70,9 @@ const Header = () => {
           md:flex
 
           items-center
-          gap-6
-          lg:gap-8
+
+          gap-5
+          lg:gap-6
 
           cursor-pointer
         "
@@ -81,8 +82,10 @@ const Header = () => {
           navList.map((item, index) => (
             <div
               className="
-                text-sm
-                lg:text-md
+                text-xs
+                lg:text-sm
+
+                font-medium
 
                 text-foreground
 
@@ -101,7 +104,7 @@ const Header = () => {
         <CustomButton
           variant='primary'
           size='sm'
-          className='w-32 lg:w-35 rounded-md'
+          className='w-28 lg:w-30 rounded-md text-xs'
           onClick={() => alert("clicked")}
           loading={false}
         >
@@ -110,13 +113,12 @@ const Header = () => {
 
       </nav>
 
-      {/* MOBILE BUTTON */}
       <div className="md:hidden">
 
         <CustomButton
           variant='primary'
           size='sm'
-          className='rounded-md px-4'
+          className='rounded-md px-3 text-xs'
         >
           Start
         </CustomButton>
