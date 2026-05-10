@@ -1,9 +1,9 @@
-import CustomButton from './components/CustomButton';
-import CustomChip from './components/CustomChip';
-import Header from './components/Header';
-import CustomCard from './components/CutsomCard';
+import CustomButton from '../components/CustomButton';
+import CustomChip from '../components/CustomChip';
+import Header from '../components/Header';
+import CustomCard from '../components/CutsomCard';
 import { FileText, CircleCheck, TriangleAlert, Bot } from 'lucide-react';
-import { TypingText } from './utils/helpers';
+import { TypingText } from '../utils/helpers';
 
 
 export default function Home() {
