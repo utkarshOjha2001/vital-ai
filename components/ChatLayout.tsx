@@ -1,92 +1,113 @@
 'use client';
-import { useState } from 'react';
+
 import clsx from 'clsx';
-import { TypingText } from '@/utils/helpers';
 
-const ChatLayout = ({}:{}) => {
-    const [currentChat, setCurrentChat] = useState([]);
+const ChatLayout = () => {
 
-    const chat = {
+    let chat = {
         status: 'success',
         chatId: 101,
         data: [
             {
                 id: 1,
                 chatType: 'sender',
-                message: "Can you explain the lipid panel results from the report I just uploaded? I'm specifically concerned about my cholesterol levels and what they mean for my cardiovascular risk." +
-                
-                "I have analyzed your recent laboratory report dated October 24, 2024. Your overall metabolic profile is stable, but there are specific markers in your lipid panel that require attention."
+                message:
+                    "Can you explain the lipid panel results from the report I just uploaded? I'm specifically concerned about my cholesterol levels and what they mean for my cardiovascular risk."
             },
             {
                 id: 2,
                 chatType: 'receiver',
-                message: "I have analyzed your recent laboratory report dated October 24, 2024. Your overall metabolic profile is stable, but there are specific markers in your lipid panel that require attention."
+                message:
+                    "I reviewed your lipid panel report. Your LDL cholesterol appears elevated, which may increase long-term cardiovascular risk. However, your HDL levels are within a healthy range, which is positive."
             },
             {
                 id: 3,
                 chatType: 'sender',
-                message: 'Hii userm how are you?'
+                message:
+                    "Should I be worried about this immediately?"
             },
             {
                 id: 4,
-                chatType: 'sender',
-                message: "Can you explain the lipid panel results from the report I just uploaded? I'm specifically concerned about my cholesterol levels and what they mean for my cardiovascular risk." +
-                
-                "I have analyzed your recent laboratory report dated October 24, 2024. Your overall metabolic profile is stable, but there are specific markers in your lipid panel that require attention."
-            },
-            {
-                id: 5,
                 chatType: 'receiver',
-                message: "I have analyzed your recent laboratory report dated October 24, 2024. Your overall metabolic profile is stable, but there are specific markers in your lipid panel that require attention."
+                message:
+                    "Not necessarily immediately, but it would be wise to discuss lifestyle adjustments and follow-up testing with your physician."
             },
-            {
-                id: 6,
-                chatType: 'sender',
-                message: 'Hii userm how are you?'
-            },
-            {
-                id: 7,
-                chatType: 'sender',
-                message: "Can you explain the lipid panel results from the report I just uploaded? I'm specifically concerned about my cholesterol levels and what they mean for my cardiovascular risk." +
-                
-                "I have analyzed your recent laboratory report dated October 24, 2024. Your overall metabolic profile is stable, but there are specific markers in your lipid panel that require attention."
-            },
-            {
-                id: 8,
-                chatType: 'receiver',
-                message: "I have analyzed your recent laboratory report dated October 24, 2024. Your overall metabolic profile is stable, but there are specific markers in your lipid panel that require attention."
-            },
-            {
-                id: 9,
-                chatType: 'sender',
-                message: 'Hii userm how are you?'
-            }
+
         ]
     };
-
+    // chat.data =[]
     return (
-        <div className='text-sm tracking-wider text-neutral leading-loose flex flex-col gap-5'>
+        <div
+            className='
+                w-full
+                max-w-4xl
+                mx-auto
+
+                flex
+                flex-col
+                gap-8
+
+                pt-8
+                pb-40
+            '
+        >
             {
                 chat?.data.map((item: any) => {
+
+                    const isSender =
+                        item.chatType === 'sender';
+
                     return (
                         <div
                             key={item.id}
                             className={clsx(
-                                'flex w-full',
-                                item.chatType === 'sender'
+                                'w-full flex',
+                                isSender
                                     ? 'justify-end'
                                     : 'justify-start'
                             )}
                         >
                             <div
                                 className={clsx(
-                                    'p-2 rounded-lg w-fit max-w-[90%]',
-                                    item.chatType === 'sender'
-                                        ? 'bg-[#263141]'
-                                        : 'bg-[#0B1825]'
+
+                                    `
+                                    max-w-[85%]
+                                    px-5
+                                    py-4
+
+                                    rounded-3xl
+
+                                    text-[15px]
+                                    leading-relaxed
+
+                                    whitespace-pre-wrap
+
+                                    shadow-sm
+                                    `,
+
+                                    isSender
+                                        ? `
+                                            bg-[#1F2937]
+                                            text-white
+
+                                            rounded-br-md
+                                          `
+                                        : `
+                                            bg-[#111827]
+                                            border
+                                            border-[#2A3441]
+
+                                            text-[#ECECF1]
+
+                                            rounded-bl-md
+                                          `
                                 )}
                             >
-                                {item.chatType === 'receiver'?item?.message:item?.message}
+
+                                {
+                                    item.message
+                                }
+
                             </div>
                         </div>
                     );

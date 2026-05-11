@@ -1,26 +1,95 @@
 'use client';
-import React from 'react'
-import HistoryTab from '@/components/HistoryTab';
+
+import React from 'react';
+
 import AIChatBox from '@/components/AIChatBox';
 import ChatLayout from '@/components/ChatLayout';
 
 const AiConsutant = () => {
-  const chatData = ''
-  return (
-    <div className='pl-[15%] pr-[15%] w-full h-screen flex flex-col'>
-  
-  <div className='flex-1 overflow-y-auto pb-28 mt-4'>
-    <div className='flex justify-center items-center text-neutral rounded-2xl w-full'>
-      <div className='mb-4 mt-3 text-sm bg-gray-800 pl-3 pr-3 p-2 rounded-2xl'>
-        Today
-      </div>
-    </div>
-    <ChatLayout />
-  </div>
-  <AIChatBox chatData={chatData} />
 
-</div>
-  )
-}
+  const chatData: [] = [];
+
+  const isEmpty = chatData?.length === 0;
+
+  return (
+    <div className='w-full h-screen'>
+
+      {
+        !isEmpty ? (
+
+          <div
+            className='
+                            h-full
+                            flex
+                            flex-col
+                            items-center
+                            justify-center
+                            -mt-16
+                            px-4
+                        '
+          >
+
+            <div
+              className='
+                                w-full
+                                max-w-4xl
+                                flex
+                                flex-col
+                                items-center
+                            '
+            >
+
+              <h1
+                className='
+                                    text-2xl
+                                    font-semibold
+                                    text-white
+                                    tracking-tight
+                                '
+              >
+                Your AI Medical Consultant
+              </h1>
+
+              <p
+                className='
+                                    mt-1
+                                    mb-8
+
+                                    text-lg
+                                    text-[#9CA3AF]
+
+                                    text-center
+                                    leading-relaxed
+                                '
+              >
+                Describe your symptoms, concerns,
+                or medical questions.
+              </p>
+
+              <AIChatBox chatData={chatData} />
+
+            </div>
+
+          </div>
+
+        ) : (
+
+          <div className='h-full flex flex-col'>
+
+            <div className='flex-1 overflow-y-auto'>
+              <ChatLayout />
+            </div>
+
+            <div className='w-full flex justify-center px-4 pb-6'>
+              <AIChatBox chatData={chatData} />
+            </div>
+
+          </div>
+        )
+      }
+
+    </div>
+  );
+};
 
 export default AiConsutant;

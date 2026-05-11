@@ -1,82 +1,102 @@
 'use client';
-import React from 'react'
+
+import React from 'react';
 import { SendHorizonal } from 'lucide-react';
 
-const AIChatBox = ({chatData}:{chatData:any}) => {
-    const handleSubmit = (e?: React.SubmitEvent<HTMLFormElement>) => {
+const AIChatBox = ({ chatData = [] }: { chatData: any[] }) => {
+
+    const handleSubmit = (
+        e?: React.SubmitEvent<HTMLFormElement>
+    ) => {
         e?.preventDefault();
         alert('submit');
-    }
+    };
 
-    const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-        if (e?.key === 'Enter' && !e?.shiftKey) {
-            e?.preventDefault();
+    const handleKeyDown = (
+        e: React.KeyboardEvent<HTMLTextAreaElement>
+    ) => {
+
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
             handleSubmit();
         }
-    }
+    };
+
     return (
-        <form onSubmit={handleSubmit}
-            className='absolute bottom-20 right-[9%] z-50  flex h-20 rounded-xl w-[50%] gap-4 bg-[#0d1c2d] p-2 overflow-y-auto scrollbar-thin'
+        <form
+            onSubmit={handleSubmit}
+            className="
+                w-full
+                max-w-4xl
+                min-h-16
+
+                flex
+                items-end
+                gap-3
+
+                rounded-3xl
+
+                border
+                border-[#2A3441]
+
+                bg-[#0B1826]/95
+                backdrop-blur-xl
+
+                px-4
+                py-3
+
+                shadow-2xl
+            "
         >
             <textarea
-                placeholder="Ask anything..."
+                placeholder="Ask your symptoms, concerns or questions..."
+                rows={1}
                 onKeyDown={handleKeyDown}
                 className="
-    w-full
-    h-full
+                    flex-1
+                    resize-none
+                    bg-transparent
 
-    resize-none
-    outline-none
-    border-none
-    ring-0
-    focus:outline-none
-    focus:ring-0
-    focus:border-none
+                    text-[#ECECF1]
+                    placeholder:text-[#8E8EA0]
 
-    bg-transparent
+                    text-[15px]
+                    leading-relaxed
 
-    text-[#E4E4E7]
-    placeholder:text-[#71717A]
+                    outline-none
+                    border-none
+                    ring-0
 
-    text-md
-    font-normal
+                    max-h-40
+                    overflow-y-auto
 
-    px-2
-    py-2
-
-    scrollbar-thin
-  "
+                    py-2
+                "
             />
+
             <button
-                type='submit'
+                type="submit"
                 className="
-    cursor-pointer
-    flex
-    items-center
-    justify-center
+                    flex
+                    items-center
+                    justify-center
 
-    rounded-xl
+                    min-w-10
+                    h-10
 
-    px-2
-    min-w-14
-    h-[80%]
-    bg-linear-to-br
-    from-[#7B6DFF]
-    via-[#8B5CF6]
-    to-[#5D5FEF]
+                    rounded-full
 
-    shadow-[0_0_20px_rgba(123,109,255,0.45)]
+                    bg-white
+                    text-black
 
-    transition-all
-    duration-300
+                    transition-all
+                    duration-200
 
-    hover:scale-100
-    hover:shadow-[0_0_28px_rgba(123,109,255,0.7)]
-
-    active:scale-95
-  "
+                    hover:scale-105
+                    active:scale-95
+                "
             >
-                <SendHorizonal className="w-5 h-5 text-white" />
+                <SendHorizonal className="w-4 h-4" />
             </button>
         </form>
     );
