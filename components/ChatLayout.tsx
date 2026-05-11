@@ -35,7 +35,7 @@ const ChatLayout = () => {
 
         ]
     };
-    // chat.data =[]
+    chat.data =[]
     return (
         <div
             className='

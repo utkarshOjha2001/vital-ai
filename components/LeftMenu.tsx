@@ -63,7 +63,7 @@ const LeftMenu = () => {
               ? "fixed top-0 left-0 z-50 w-64 px-3"
               : "relative w-14 px-1.5"
             : isOpen
-              ? "relative w-51 px-3"
+              ? "relative w-61 px-3"
               : "relative w-14 px-1.5"
         )}
       >

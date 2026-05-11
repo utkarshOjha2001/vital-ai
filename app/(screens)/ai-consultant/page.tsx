@@ -15,7 +15,7 @@ const AiConsutant = () => {
     <div className='w-full h-screen'>
 
       {
-        !isEmpty ? (
+        isEmpty ? (
 
           <div
             className='

@@ -53,15 +53,15 @@ const HistoryTab = () => {
         <div className='flex flex-col gap-4 mb-1 overflow-y-auto scrollbar-thin min-h-0'>
             {getHistory.map((item:any) => (
                 <div 
-                className={clsx('text-sm p-2 text-neutral flex flex-col justify-start items-start gap-2 font-bold cursor-pointer', selectedHistory === item.id && 'bg-neutral-500/10 rounded-lg' )}
+                className={clsx('text-sm p-2 text-neutral flex flex-col justify-start items-start gap-2 font-semibold cursor-pointer', selectedHistory === item.id && 'bg-neutral-500/10 rounded-lg' )}
                 key={item.id}
                 onClick={() => setSelectedHistory(item.id)}
                 >
                     {item.name}
-                    <div className='text-xs text-neutral-500'>
+                    <div className='text-xs text-neutral-300'>
                         {item.description}
                     </div>
-                    <div className='text-xs text-neutral-500'>
+                    <div className='text-[10px] text-neutral-500'>
                         {item.date}
                     </div>
                     </div>
