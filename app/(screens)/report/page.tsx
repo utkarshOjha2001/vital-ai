@@ -15,26 +15,17 @@ import './report.css';
 const Report = () => {
   return (
     <div className="report-container">
-
       <div className="report-top-glow" />
-
       <div className="report-bottom-glow" />
-
-      {/* HEADER */}
       <div className='text-neutral text-xl sm:text-2xl lg:text-3xl mt-6 font-bold'>
         Upload Clinical Data
       </div>
-
       <p className='mt-2 text-white text-xs sm:text-sm leading-6 sm:leading-7'>
         Securely drop your laboratory results, imaging reports, or clinical notes.
         <br className='hidden sm:block' />
         Our proprietary AI will extract, analyze, and map biomarkers instantly.
       </p>
-
-      {/* MAIN SECTION */}
       <div className='mt-6 sm:mt-8 lg:mt-10 flex flex-col lg:flex-row gap-5 lg:gap-8 items-stretch lg:items-start'>
-
-        {/* LEFT CARD */}
         <CustomCard
           variant='natural'
           className='rounded-xl w-full lg:w-[70%]'
@@ -141,7 +132,7 @@ const Report = () => {
 
         </CustomCard>
 
-        {/* PROCESSOR CARD */}
+
         <div className='bg-[#0A1728] w-full lg:w-[30%] min-h-60 lg:min-h-100 rounded-xl border-t-4 pt-5 pl-5 pr-5 border-[#0E2C3E]'>
 
           <div className='mt-7'>

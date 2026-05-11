@@ -55,15 +55,15 @@ const LeftMenu = () => {
 
       <div
         className={clsx(
-          "flex flex-col justify-between min-h-screen shrink-0",
+          "flex flex-col justify-between h-screen shrink-0 overflow-y-auto",
           "border-r border-white/10 bg-[#071427]/90 backdrop-blur-2xl",
-          "py-4 transition-all duration-300",
+          "py-4 transition-[width,padding] duration-300",
           isMobile
             ? isOpen
               ? "fixed top-0 left-0 z-50 w-64 px-3"
               : "relative w-14 px-1.5"
             : isOpen
-              ? "relative w-64 px-3"
+              ? "relative w-51 px-3"
               : "relative w-14 px-1.5"
         )}
       >

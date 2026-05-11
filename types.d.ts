@@ -29,3 +29,11 @@ interface ITypingTextProps {
     speed?: number;
     className?: string;
 }
+
+//store
+interface BearState {
+    bears: number;
+    increaseBears: () => void;
+    removeAllBears: () => void;
+    updateBears: (newBears: number) => void;
+  }
