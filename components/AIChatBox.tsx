@@ -2,17 +2,25 @@
 import React from 'react'
 import { SendHorizonal } from 'lucide-react';
 
-const AIChatBox = () => {
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+const AIChatBox = ({chatData}:{chatData:any}) => {
+    const handleSubmit = (e?: React.SubmitEvent<HTMLFormElement>) => {
+        e?.preventDefault();
         alert('submit');
+    }
+
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+        if (e?.key === 'Enter' && !e?.shiftKey) {
+            e?.preventDefault();
+            handleSubmit();
+        }
     }
     return (
         <form onSubmit={handleSubmit}
-            className='absolute bottom-20 right-[14%] z-50  flex h-20 rounded-xl w-[50%] gap-4 bg-[#0d1c2d] p-2 overflow-y-auto scrollbar-thin'
+            className='absolute bottom-20 right-[9%] z-50  flex h-20 rounded-xl w-[50%] gap-4 bg-[#0d1c2d] p-2 overflow-y-auto scrollbar-thin'
         >
             <textarea
                 placeholder="Ask anything..."
+                onKeyDown={handleKeyDown}
                 className="
     w-full
     h-full
