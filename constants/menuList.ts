@@ -10,7 +10,7 @@ export const menuList = [
   {
     name: 'Overview',
     icon: LayoutDashboard,
-    path: '/overview',
+    path: '/home',
     alias: '',
   },
   {

@@ -29,13 +29,11 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} dark:bg-background`}
     >
       <body>
-        <div className="flex">
-          <div className="">
-            <LeftMenu />
-          </div>
-          <div>
-          {children}
-          </div>
+        <div className="flex min-h-screen">
+          <LeftMenu />
+          <main className="flex-1 min-w-0 overflow-x-hidden">
+            {children}
+          </main>
         </div>
         </body>
     </html>

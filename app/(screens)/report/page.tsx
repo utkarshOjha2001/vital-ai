@@ -21,23 +21,23 @@ const Report = () => {
       <div className="report-bottom-glow" />
 
       {/* HEADER */}
-      <div className='text-neutral text-3xl mt-6 font-bold'>
+      <div className='text-neutral text-xl sm:text-2xl lg:text-3xl mt-6 font-bold'>
         Upload Clinical Data
       </div>
 
-      <p className='mt-2 text-white text-sm leading-7'>
+      <p className='mt-2 text-white text-xs sm:text-sm leading-6 sm:leading-7'>
         Securely drop your laboratory results, imaging reports, or clinical notes.
-        <br />
+        <br className='hidden sm:block' />
         Our proprietary AI will extract, analyze, and map biomarkers instantly.
       </p>
 
       {/* MAIN SECTION */}
-      <div className='mt-10 flex gap-8 items-start'>
+      <div className='mt-6 sm:mt-8 lg:mt-10 flex flex-col lg:flex-row gap-5 lg:gap-8 items-stretch lg:items-start'>
 
         {/* LEFT CARD */}
         <CustomCard
           variant='natural'
-          className='rounded-xl w-[70%]'
+          className='rounded-xl w-full lg:w-[70%]'
         >
 
           <div
@@ -48,8 +48,11 @@ const Report = () => {
 
               rounded-lg
 
-              pt-10
-              pb-15
+              pt-6
+              pb-8
+              sm:pt-10
+              sm:pb-15
+              px-4
 
               flex
               flex-col
@@ -88,10 +91,13 @@ const Report = () => {
             {/* TITLE */}
             <div
               className='
-                text-lg
+                text-base
+                sm:text-lg
                 text-[#DCE8F8]
                 font-bold
-                mt-5
+                mt-4
+                sm:mt-5
+                text-center
               '
             >
               Drag & drop report files
@@ -136,7 +142,7 @@ const Report = () => {
         </CustomCard>
 
         {/* PROCESSOR CARD */}
-        <div className='bg-[#0A1728] w-[30%] min-h-100 rounded-xl border-t-4 pt-5 pl-5 pr-5 border-[#0E2C3E]'>
+        <div className='bg-[#0A1728] w-full lg:w-[30%] min-h-60 lg:min-h-100 rounded-xl border-t-4 pt-5 pl-5 pr-5 border-[#0E2C3E]'>
 
           <div className='mt-7'>
 

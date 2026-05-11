@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { menuList } from "@/constants/menuList";
 import { useRouter, usePathname } from "next/navigation";
@@ -15,9 +15,21 @@ import {
 
 const LeftMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const router = useRouter();
   const pathname = usePathname();
+
+  useEffect(() => {
+    const mql = window.matchMedia("(max-width: 767px)");
+    const handleChange = (e: MediaQueryListEvent | MediaQueryList) => {
+      setIsMobile(e.matches);
+      if (e.matches) setIsOpen(false);
+    };
+    handleChange(mql);
+    mql.addEventListener("change", handleChange);
+    return () => mql.removeEventListener("change", handleChange);
+  }, []);
 
   function handleMenuToggle() {
     setIsOpen((prev) => !prev);
@@ -26,42 +38,35 @@ const LeftMenu = () => {
   function handleMenuClick(path: string) {
     if (!isOpen) {
       setIsOpen(true);
+      return;
     }
-
     router.push(path);
+    if (isMobile) setIsOpen(false);
   }
 
   return (
-    <div
-      className={clsx(
-        `
-        fixed
-        top-0
-        left-0
-        z-50
-
-        flex
-        flex-col
-        justify-between
-
-        min-h-screen
-
-        border-r
-        border-white/10
-
-        bg-[#071427]/90
-        backdrop-blur-2xl
-
-        py-4
-
-        transition-all
-        duration-300
-        `,
-        isOpen
-          ? 'w-46 sm:w-52 lg:w-56 px-3'
-          : 'w-14 px-1.5'
+    <>
+      {isOpen && isMobile && (
+        <div
+          className="fixed inset-0 z-40 bg-black/50"
+          onClick={() => setIsOpen(false)}
+        />
       )}
-    >
+
+      <div
+        className={clsx(
+          "flex flex-col justify-between min-h-screen shrink-0",
+          "border-r border-white/10 bg-[#071427]/90 backdrop-blur-2xl",
+          "py-4 transition-all duration-300",
+          isMobile
+            ? isOpen
+              ? "fixed top-0 left-0 z-50 w-64 px-3"
+              : "relative w-14 px-1.5"
+            : isOpen
+              ? "relative w-64 px-3"
+              : "relative w-14 px-1.5"
+        )}
+      >
 
       {/* TOP */}
       <div>
@@ -282,7 +287,8 @@ const LeftMenu = () => {
 
       </div>
 
-    </div>
+      </div>
+    </>
   );
 };
 
