@@ -1,8 +1,9 @@
 'use client';
 
 import clsx from 'clsx';
-
+import { useChatStore } from '@/store/store';
 const ChatLayout = () => {
+const chatData = useChatStore((state) => state.chatData);
 
     let chat = {
         status: 'success',
@@ -35,7 +36,7 @@ const ChatLayout = () => {
 
         ]
     };
-    chat.data =[]
+    // chat.data =[]
     return (
         <div
             className='
@@ -52,7 +53,7 @@ const ChatLayout = () => {
             '
         >
             {
-                chat?.data.map((item: any) => {
+                chatData.map((item: any) => {
 
                     const isSender =
                         item.chatType === 'sender';

@@ -1,15 +1,15 @@
 'use client';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import AIChatBox from '@/components/AIChatBox';
 import ChatLayout from '@/components/ChatLayout';
+import { useChatStore } from '@/store/store';
 
 const AiConsutant = () => {
 
-  const chatData: [] = [];
-
-  const isEmpty = chatData?.length === 0;
+ const chatData = useChatStore((state) => state.chatData);
+ const isEmpty = useMemo(() => chatData?.length === 0, [chatData]);
 
   return (
     <div className='w-full h-screen'>
@@ -66,7 +66,7 @@ const AiConsutant = () => {
                 or medical questions.
               </p>
 
-              <AIChatBox chatData={chatData} />
+              <AIChatBox />
 
             </div>
 
@@ -81,7 +81,7 @@ const AiConsutant = () => {
             </div>
 
             <div className='w-full flex justify-center px-4 pb-6'>
-              <AIChatBox chatData={chatData} />
+              <AIChatBox />
             </div>
 
           </div>

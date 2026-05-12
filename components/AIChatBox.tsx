@@ -1,24 +1,36 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { SendHorizonal } from 'lucide-react';
+import { useChatStore } from '@/store/store';
 
-const AIChatBox = ({ chatData = [] }: { chatData: any[] }) => {
+const AIChatBox = () => {
+    const [message, setMessage] = useState('');
+    const addChatData = useChatStore((state) => state.addChatData);
 
-    const handleSubmit = (
-        e?: React.SubmitEvent<HTMLFormElement>
-    ) => {
+    const sendMessage = (text: string) => {
+        if (!text.trim()) return;
+
+        addChatData({
+            id: Date.now(),
+            message: text,
+            createdAt: new Date().toISOString(),
+            chatType: 'sender',
+        });
+        setMessage('');
+    };
+
+    const handleSubmit = (e?: React.FormEvent<HTMLFormElement>) => {
         e?.preventDefault();
-        alert('submit');
+        sendMessage(message);
     };
 
     const handleKeyDown = (
         e: React.KeyboardEvent<HTMLTextAreaElement>
     ) => {
-
         if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault();
-            handleSubmit();
+            sendMessage(e.currentTarget.value);
         }
     };
 
@@ -51,6 +63,8 @@ const AIChatBox = ({ chatData = [] }: { chatData: any[] }) => {
             <textarea
                 placeholder="Ask your symptoms, concerns or questions..."
                 rows={1}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 onKeyDown={handleKeyDown}
                 className="
                     flex-1
