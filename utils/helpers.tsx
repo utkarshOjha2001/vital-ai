@@ -29,3 +29,42 @@ export const TypingText = ({ text, speed = 50, className }: ITypingTextProps) =>
         </div>
     )
 }
+
+export const dateAnalyzer = (date: Date) => {
+
+    const currentDate = new Date();
+
+    const today = new Date(
+        currentDate.getFullYear(),
+        currentDate.getMonth(),
+        currentDate.getDate()
+    );
+
+    const targetDate = new Date(
+        date.getFullYear(),
+        date.getMonth(),
+        date.getDate()
+    );
+
+    const diffTime =
+        today.getTime() - targetDate.getTime();
+
+    const diffDays =
+        diffTime / (1000 * 60 * 60 * 24);
+
+    if (diffDays === 0) {
+        return 'Today';
+    }
+    if (diffDays === 1) {
+        return 'Yesterday';
+    }
+
+    return new Intl.DateTimeFormat(
+        'en-In',
+        {
+            month: 'short',
+            day: '2-digit',
+            year: 'numeric'
+        }
+    ).format(date);
+};
