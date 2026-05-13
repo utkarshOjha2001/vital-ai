@@ -20,7 +20,7 @@ const AIChatBox = () => {
         setMessage('');
     };
 
-    const handleSubmit = (e?: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (e?: React.SubmitEvent<HTMLFormElement>) => {
         e?.preventDefault();
         sendMessage(message);
     };
