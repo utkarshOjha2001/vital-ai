@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { signIn } from "next-auth/react";
 import { Mail, Lock } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+
 
 const SignIn = () => {
   const router = useRouter();
@@ -23,21 +25,28 @@ const SignIn = () => {
   };
 
   const handleSubmit = async (e: any) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    console.log("Login Data:", formData);
-
-    // Example:
-    // await signIn("credentials", {
-    //   email: formData.email,
-    //   password: formData.password,
-    // });
-  };
+  try {
+    const result = await signIn("credentials", {
+      email: formData.email,
+      password: formData.password,
+      redirect: false,
+    });
+    if (result?.error) {
+      console.log(result.error);
+      alert("Invalid credentials");
+      return;
+    }
+    router.push("/report");
+  } catch (error) {
+    console.error(error);
+    alert("Something went wrong");
+  }
+};
 
   return (
     <div className="min-h-screen flex bg-[#050816] text-white overflow-hidden">
-
-      {/* LEFT IMAGE SECTION */}
       <div className="hidden lg:flex w-1/2 relative">
         {/* <img
           src="/loginPage.png"
@@ -133,8 +142,6 @@ const SignIn = () => {
                 />
               </div>
             </div>
-
-            {/* REMEMBER + FORGOT */}
             <div className="flex items-center justify-between pt-1">
 
               <label className="flex items-center gap-2 text-sm text-gray-400 cursor-pointer">
@@ -171,23 +178,14 @@ const SignIn = () => {
               </span>
             </div>
           </form>
-
-          {/* DIVIDER */}
           <div className="flex items-center gap-3 my-6">
-
             <div className="flex-1 h-[1px] bg-[#1F2937]" />
-
             <span className="text-gray-500 text-sm">
               Or continue with
             </span>
-
             <div className="flex-1 h-[1px] bg-[#1F2937]" />
           </div>
-
-          {/* SOCIAL LOGIN */}
           <div className="grid grid-cols-2 gap-3">
-
-            {/* GOOGLE */}
             <button
               className="h-12 rounded-lg bg-[#111827] border border-[#1F2937] hover:border-indigo-500 transition flex items-center justify-center gap-2 text-sm"
             >
@@ -199,8 +197,6 @@ const SignIn = () => {
 
               <span>Google</span>
             </button>
-
-            {/* GITHUB */}
             <button
               className="h-12 rounded-lg bg-[#111827] border border-[#1F2937] hover:border-indigo-500 transition flex items-center justify-center gap-2 text-sm"
             >

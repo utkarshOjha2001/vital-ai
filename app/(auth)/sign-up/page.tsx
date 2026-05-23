@@ -9,14 +9,12 @@ const SignUp = () => {
     const router = useRouter();
     const [formData, setFormData] = useState({
         username: "",
-        name: "",
         email: "",
         password: "",
     });
 
     const handleChange = (e: any) => {
         const { name, value } = e.target;
-
         setFormData((prev) => ({
             ...prev,
             [name]: value,
@@ -26,16 +24,39 @@ const SignUp = () => {
     const handleSubmit = async (e: any) => {
         e.preventDefault();
 
-        console.log("Signup Data:", formData);
+        try {
+            const res = await fetch("/api/auth/sign-up", {
+                method: "POST",
 
-        // Example:
-        // await signup API call
+                headers: {
+                    "Content-Type": "application/json",
+                },
+
+                body: JSON.stringify({
+                    username: formData.username,
+                    email: formData.email,
+                    password: formData.password,
+                }),
+            });
+
+            const data = await res.json();
+
+            if (!res.ok) {
+                alert(data.message || "Something went wrong");
+                return;
+            }
+
+            console.log("User Created:", data);
+            router.push("/sign-in");
+
+        } catch (error) {
+            console.error(error);
+            alert("Something went wrong");
+        }
     };
 
     return (
         <div className="min-h-screen flex bg-[#050816] text-white overflow-hidden">
-
-            {/* LEFT VIDEO SECTION */}
             <div className="hidden lg:flex w-1/2 relative overflow-hidden">
 
                 <video
@@ -81,11 +102,7 @@ const SignUp = () => {
                             </span>
                         </p>
                     </div>
-
-                    {/* FORM */}
                     <form onSubmit={handleSubmit} className="space-y-8">
-
-                        {/* USERNAME */}
                         <div>
                             <label className="text-sm text-gray-300 mb-2 block">
                                 Username
@@ -131,8 +148,6 @@ const SignUp = () => {
                                 />
                             </div>
                         </div>
-
-                        {/* PASSWORD */}
                         <div>
                             <label className="text-sm text-gray-300 mb-2 block">
                                 Password
@@ -155,8 +170,6 @@ const SignUp = () => {
                                 />
                             </div>
                         </div>
-
-                        {/* BUTTON */}
                         <button
                             type="submit"
                             className="w-full h-12 mt-4 rounded-lg bg-indigo-600 hover:bg-indigo-500 transition-all font-medium text-sm"
@@ -164,8 +177,6 @@ const SignUp = () => {
                             Create Account
                         </button>
                     </form>
-
-                    {/* DIVIDER */}
                     <div className="flex items-center gap-3">
 
                         <div className="flex-1 h-[1px] bg-[#1F2937]" />
@@ -176,11 +187,7 @@ const SignUp = () => {
 
                         <div className="flex-1 h-[1px] bg-[#1F2937]" />
                     </div>
-
-                    {/* SOCIAL LOGIN */}
                     <div className="grid grid-cols-2 gap-3">
-
-                        {/* GOOGLE */}
                         <button
                             className="h-12 rounded-lg bg-[#111827] border border-[#1F2937] hover:border-indigo-500 transition flex items-center justify-center gap-2 text-sm"
                         >
@@ -192,8 +199,6 @@ const SignUp = () => {
 
                             <span>Google</span>
                         </button>
-
-                        {/* GITHUB */}
                         <button
                             className="h-12 rounded-lg bg-[#111827] border border-[#1F2937] hover:border-indigo-500 transition flex items-center justify-center gap-2 text-sm"
                         >

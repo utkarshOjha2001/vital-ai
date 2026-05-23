@@ -2,6 +2,7 @@
 
 import CustomCard from '@/components/CutsomCard';
 import CustomButton from '@/components/CustomButton';
+import { useSession } from 'next-auth/react';
 
 import {
   CloudUpload,
@@ -13,6 +14,8 @@ import {
 import './report.css';
 
 const Report = () => {
+  const {data: session} = useSession();
+  console.log(session)
   return (
     <div className="report-container">
       <div className="report-top-glow" />

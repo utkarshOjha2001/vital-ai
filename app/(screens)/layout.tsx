@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Providers from "../provider";
 import { Geist, Geist_Mono } from "next/font/google";
 import "@/app/globals.css";
 import LeftMenu from "@/components/LeftMenu";
@@ -29,13 +30,15 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} dark:bg-background`}
     >
       <body>
-        <div className="flex h-screen w-full overflow-hidden">
-          <LeftMenu />
-          <div className="flex-1 overflow-x-hidden overflow-y-auto">
-            {children}
+        <Providers>
+          <div className="flex h-screen w-full overflow-hidden">
+            <LeftMenu />
+            <div className="flex-1 overflow-x-hidden overflow-y-auto">
+              {children}
+            </div>
           </div>
-        </div>
-        </body>
+        </Providers>
+      </body>
     </html>
   );
 }
