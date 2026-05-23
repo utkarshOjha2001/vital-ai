@@ -3,8 +3,11 @@
 import Image from 'next/image';
 import CustomButton from './CustomButton';
 import { navList } from '@/constants/navList';
+import { useRouter } from 'next/navigation';
 
 const Header = () => {
+  const router = useRouter();
+
   return (
     <header
       className="
@@ -102,7 +105,7 @@ const Header = () => {
           variant='primary'
           size='sm'
           className='w-28 lg:w-30 rounded-md text-xs'
-          onClick={() => alert("clicked")}
+          onClick={() => router.push('/sign-in')}
           loading={false}
         >
           Get Started
