@@ -1,3 +1,5 @@
+// import NextAuth, { DefaultSession } from "next-auth";
+// import { JWT } from "next-auth/jwt";
 interface ButtonProps
     extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     width?: string;
@@ -37,33 +39,3 @@ interface BearState {
     removeAllBears: () => void;
     updateBears: (newBears: number) => void;
   }
-
-// NextAuth Sessions
-import NextAuth, { DefaultSession } from "next-auth";
-import { JWT } from "next-auth/jwt";
-
-declare module "next-auth" {
-  interface Session {
-    user: {
-      id: string;
-      role: string;
-      image?: string;
-      isVerified?: boolean;
-    } & DefaultSession["user"];
-  }
-
-  interface User {
-    id: string;
-    role: string;
-    isVerified?: boolean;
-  }
-}
-
-declare module "next-auth/jwt" {
-  interface JWT {
-    id: string;
-    role: string;
-    image?: string;
-    isVerified?: boolean;
-  }
-}
