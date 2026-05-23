@@ -1,0 +1,64 @@
+.report-container {
+  position: relative;
+  top: 0;
+  left: 0;
+  padding: 1rem;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: var(--background);
+}
+
+@media (min-width: 640px) {
+  .report-container {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .report-container {
+    padding: 2rem;
+  }
+}
+
+.report-top-glow {
+  position: absolute;
+  top: -200px;
+  left: -150px;
+  width: 350px;
+  height: 350px;
+  border-radius: 9999px;
+  background-color: rgba(108, 99, 255, 0.3);
+  filter: blur(100px);
+}
+
+@media (min-width: 768px) {
+  .report-top-glow {
+    top: -350px;
+    left: -250px;
+    width: 600px;
+    height: 600px;
+    filter: blur(140px);
+  }
+}
+
+.report-bottom-glow {
+  position: absolute;
+  bottom: -250px;
+  right: -200px;
+  width: 350px;
+  height: 350px;
+  border-radius: 9999px;
+  background-color: rgba(0, 212, 255, 0.25);
+  filter: blur(120px);
+}
+
+@media (min-width: 768px) {
+  .report-bottom-glow {
+    bottom: -400px;
+    right: -300px;
+    width: 600px;
+    height: 600px;
+    filter: blur(160px);
+  }
+}

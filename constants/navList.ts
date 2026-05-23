@@ -7,8 +7,8 @@ export const navList = [
         name: 'How it works',
         link: '#working',
     },
-    {
-        name: 'Pricing',
-        link: '#pricing',
-    },
+    // {
+    //     name: 'Pricing',
+    //     link: '#pricing',
+    // },
 ];
