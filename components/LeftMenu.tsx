@@ -64,7 +64,7 @@ const LeftMenu = () => {
       <div
         className={clsx(
           "flex flex-col justify-between h-screen shrink-0 overflow-y-auto",
-          "border-r border-white/10 bg-[#071427]/90 backdrop-blur-2xl",
+          "border-r border-white/10 bg-[#081427] backdrop-blur-2xl",
           "py-4 transition-[width,padding] duration-300",
           isMobile
             ? isOpen

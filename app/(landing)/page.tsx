@@ -17,47 +17,34 @@ export default function Home() {
         min-h-screen
         w-full
         overflow-hidden
-
-        dark:bg-background
-
+        bg-background
         [background:radial-gradient(circle_900px_at_50%_-10%,color-mix(in_srgb,var(--secondary)_12%,transparent)_0%,transparent_70%)]
       "
     >
-
       <Header />
-
       <div
         className="
           flex
           flex-col
           lg:flex-row
-
           w-full
-
           mt-8
           md:mt-10
           lg:mt-12
-
           px-4
           md:px-6
-          lg:pl-10
-          lg:pr-8
-
+          lg:pl-25
+          lg:pr-25
           gap-12
           lg:gap-8
-
           justify-between
         "
       >
-
-        {/* LEFT SECTION */}
         <div className="w-full lg:w-auto">
-
           <CustomChip
             className="w-fit scale-90"
             title={"INTRODUCING VITAL AI"}
           />
-
           <div
             className="
               mt-4

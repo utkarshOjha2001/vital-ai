@@ -14,7 +14,7 @@ export default function AiConsultantLayout({
     <div className={`${inter.className} flex h-full`}>
       <HistoryTab />
 
-      <div className="flex-1 overflow-x-hidden overflow-y-auto dark:bg-background">
+      <div className="flex-1 overflow-x-hidden overflow-y-auto bg-background">
         {children}
       </div>
     </div>

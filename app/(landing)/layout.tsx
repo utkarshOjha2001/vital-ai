@@ -28,7 +28,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
-      <body className="min-h-full flex flex-col dark:bg-background">
+      <body className="min-h-full flex flex-col bg-background">
         {children}
         <Footer />
         </body>
