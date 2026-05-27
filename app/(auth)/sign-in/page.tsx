@@ -48,12 +48,12 @@ const SignIn = () => {
   return (
     <div className="min-h-screen flex bg-[#050816] text-white overflow-hidden">
       <div className="hidden lg:flex w-1/2 relative">
-        {/* <img
+        <img
           src="/loginPage.png"
           alt="workspace"
           className="h-full w-full object-cover"
-        /> */}
-        <video
+        />
+        {/* <video
           autoPlay
           muted
           loop
@@ -61,7 +61,7 @@ const SignIn = () => {
           className="h-full w-full object-cover"
         >
           <source src="/video/LoginAnim.mp4" type="video/mp4" />
-        </video>
+        </video> */}
 
         <div className="absolute inset-0 bg-black/20" />
       </div>

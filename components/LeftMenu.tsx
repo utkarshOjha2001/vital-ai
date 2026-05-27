@@ -1,9 +1,10 @@
 'use client';
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
-import { menuList } from "@/constants/menuList";
 import { useRouter, usePathname } from "next/navigation";
+import { signOut } from "next-auth/react";
+import { menuList } from "@/constants/menuList";
+import Image from "next/image";
 import clsx from "clsx";
 import {
   Settings,
@@ -30,6 +31,13 @@ const LeftMenu = () => {
     mql.addEventListener("change", handleChange);
     return () => mql.removeEventListener("change", handleChange);
   }, []);
+
+  async function handleLogout() {
+    console.log('user-logged-out')
+    await signOut({
+      callbackUrl: '/sign-in'
+    });
+  }
 
   function handleMenuToggle() {
     setIsOpen((prev) => !prev);
@@ -68,59 +76,59 @@ const LeftMenu = () => {
         )}
       >
 
-      {/* TOP */}
-      <div>
+        {/* TOP */}
+        <div>
 
-        {/* LOGO */}
-        <div
-          className={clsx(
-            `
+          {/* LOGO */}
+          <div
+            className={clsx(
+              `
             flex
             items-center
             `,
-            isOpen ? 'justify-between' : 'justify-center'
-          )}
-        >
+              isOpen ? 'justify-between' : 'justify-center'
+            )}
+          >
 
-          <div
-            onClick={() => !isOpen && setIsOpen(true)}
-            className="
+            <div
+              onClick={() => !isOpen && setIsOpen(true)}
+              className="
               flex
               items-center
               gap-2
 
               cursor-pointer
             "
-          >
+            >
 
-            <Image
-              width={32}
-              height={32}
-              src={'/logo.png'}
-              alt="Vital AI"
-              className="shrink-0"
-            />
+              <Image
+                width={32}
+                height={32}
+                src={'/logo.png'}
+                alt="Vital AI"
+                className="shrink-0"
+              />
+
+              {isOpen && (
+                <div>
+
+                  <div className="text-white font-bold text-lg leading-none">
+                    Vital AI
+                  </div>
+
+                  <div className="text-[10px] text-[#A1A1AA] font-medium mt-1">
+                    Precision Medicine
+                  </div>
+
+                </div>
+              )}
+
+            </div>
 
             {isOpen && (
-              <div>
-
-                <div className="text-white font-bold text-lg leading-none">
-                  Vital AI
-                </div>
-
-                <div className="text-[10px] text-[#A1A1AA] font-medium mt-1">
-                  Precision Medicine
-                </div>
-
-              </div>
-            )}
-
-          </div>
-
-          {isOpen && (
-            <PanelLeftClose
-              onClick={handleMenuToggle}
-              className="
+              <PanelLeftClose
+                onClick={handleMenuToggle}
+                className="
                 w-4
                 h-4
 
@@ -132,15 +140,15 @@ const LeftMenu = () => {
 
                 transition-colors
               "
-            />
-          )}
+              />
+            )}
 
-        </div>
+          </div>
 
-        {/* UPLOAD BUTTON */}
-        <button
-          className={clsx(
-            `
+          {/* UPLOAD BUTTON */}
+          <button
+            className={clsx(
+              `
             mt-6
 
             flex
@@ -169,26 +177,26 @@ const LeftMenu = () => {
             hover:bg-[#7B6DFF]/10
             hover:border-[#9D8CFF]
             `,
-            isOpen ? 'w-full px-3' : 'w-9 h-9 p-0 mx-auto'
-          )}
-        >
-          <Upload className="w-3.5 h-3.5 shrink-0" />
+              isOpen ? 'w-full px-3' : 'w-9 h-9 p-0 mx-auto'
+            )}
+          >
+            <Upload className="w-3.5 h-3.5 shrink-0" />
 
-          {isOpen && 'Upload Report'}
-        </button>
+            {isOpen && 'Upload Report'}
+          </button>
 
-        {/* MENU */}
-        <div className="mt-8 flex flex-col gap-2">
+          {/* MENU */}
+          <div className="mt-8 flex flex-col gap-2">
 
-          {menuList.map((item, index) => {
-            const Icon = item.icon;
+            {menuList.map((item, index) => {
+              const Icon = item.icon;
 
-            return (
-              <div
-                key={index}
-                onClick={() => handleMenuClick(item.path)}
-                className={clsx(
-                  `
+              return (
+                <div
+                  key={index}
+                  onClick={() => handleMenuClick(item.path)}
+                  className={clsx(
+                    `
                   flex
                   items-center
 
@@ -207,11 +215,11 @@ const LeftMenu = () => {
                   hover:text-white
                   `,
 
-                  isOpen
-                    ? 'gap-3 px-3 py-2.5'
-                    : 'justify-center py-2.5',
+                    isOpen
+                      ? 'gap-3 px-3 py-2.5'
+                      : 'justify-center py-2.5',
 
-                  pathname === item.path &&
+                    pathname === item.path &&
                     `
                     bg-linear-to-r
                     from-[#5D5FEF]
@@ -221,38 +229,38 @@ const LeftMenu = () => {
 
                     shadow-[0_0_18px_rgba(108,99,255,0.22)]
                   `
-                )}
-              >
-                <Icon className="w-4 h-4 shrink-0" />
+                  )}
+                >
+                  <Icon className="w-4 h-4 shrink-0" />
 
-                {isOpen && item.name}
-              </div>
-            );
-          })}
+                  {isOpen && item.name}
+                </div>
+              );
+            })}
+
+          </div>
 
         </div>
 
-      </div>
+        {/* BOTTOM */}
+        <div>
 
-      {/* BOTTOM */}
-      <div>
+          <div className="h-px w-full bg-white/10 mb-4" />
 
-        <div className="h-px w-full bg-white/10 mb-4" />
+          <div className="flex flex-col gap-1.5">
 
-        <div className="flex flex-col gap-1.5">
+            {[
+              { icon: Settings, label: 'Settings' },
+              { icon: CircleHelp, label: 'Help Center' },
+              { icon: LogOut, label: 'Logout', danger: true },
+            ].map((item, index) => {
+              const Icon = item.icon;
 
-          {[
-            { icon: Settings, label: 'Settings' },
-            { icon: CircleHelp, label: 'Help Center' },
-            { icon: LogOut, label: 'Logout', danger: true },
-          ].map((item, index) => {
-            const Icon = item.icon;
-
-            return (
-              <div
-                key={index}
-                className={clsx(
-                  `
+              return (
+                <div
+                  key={index}
+                  className={clsx(
+                    `
                   flex
                   items-center
 
@@ -267,25 +275,28 @@ const LeftMenu = () => {
                   cursor-pointer
                   `,
 
-                  isOpen
-                    ? 'gap-3 px-3 py-2.5'
-                    : 'justify-center py-2.5',
+                    isOpen
+                      ? 'gap-3 px-3 py-2.5'
+                      : 'justify-center py-2.5',
 
-                  item.danger
-                    ? 'text-[#D4D4D8] hover:bg-red-500/10 hover:text-red-300'
-                    : 'text-[#D4D4D8] hover:bg-white/5 hover:text-white'
-                )}
-              >
-                <Icon className="w-4 h-4 shrink-0" />
+                    item.danger
+                      ? 'text-[#D4D4D8] hover:bg-red-500/10 hover:text-red-300'
+                      : 'text-[#D4D4D8] hover:bg-white/5 hover:text-white'
+                  )}
+                  onClick={
+                    item?.label === "Logout" ? handleLogout : undefined
+                  }
+                >
+                  <Icon className="w-4 h-4 shrink-0" />
 
-                {isOpen && item.label}
-              </div>
-            );
-          })}
+                  {isOpen && item.label}
+                </div>
+              );
+            })}
+
+          </div>
 
         </div>
-
-      </div>
 
       </div>
     </>

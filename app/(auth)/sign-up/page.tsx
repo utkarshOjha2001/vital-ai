@@ -58,8 +58,13 @@ const SignUp = () => {
     return (
         <div className="min-h-screen flex bg-[#050816] text-white overflow-hidden">
             <div className="hidden lg:flex w-1/2 relative overflow-hidden">
+                <img
+                    src="/loginPage.png"
+                    alt="workspace"
+                    className="h-full w-full object-cover"
+                />
 
-                <video
+                {/* <video
                     autoPlay
                     muted
                     loop
@@ -67,7 +72,7 @@ const SignUp = () => {
                     className="h-full w-full object-cover scale-105"
                 >
                     <source src="/video/LoginAnim.mp4" type="video/mp4" />
-                </video>
+                </video> */}
             </div>
 
             {/* RIGHT SECTION */}
